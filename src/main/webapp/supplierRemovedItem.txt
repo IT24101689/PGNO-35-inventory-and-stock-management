@@ -1,0 +1,138 @@
+kim
+Electronics,dvd,55,100,2025-02-05,2025-05-04
+
+supplier1
+Asus,Electronics,L,100,1200.00,2025-05-02,2025-05-31
+
+supplier1
+Asus,Electronics,M,100,1000.00,2025-05-02,2025-05-30
+
+supplier1
+Asus,Electronics,Monitor,50,50000.00,2025-04-14,2029-06-22
+
+supplier1
+Asus,Electronics,Mouse,50,1500.00,2025-05-05,2029-10-25
+
+supplier1
+Asus,Electronics,phone,100,10000.00,2025-05-05,2025-06-06
+
+supplier1
+Asus,Electronics,Laptop,15,250000.00,2025-05-05,2030-12-27
+
+supplier1
+Asus,Electronics,tazer,2,20.00,2025-05-05,2025-05-29
+
+supplier1
+Asus,Electronics,Rog 5,10,150000.00,2025-05-05,2034-11-15
+
+supplier1
+Asus,Electronics,Earphone,20,1300.00,2025-05-05,2025-06-12
+
+supplier1
+Asus,Electronics,Laptop,10,200000.00,2025-04-14,2025-05-07
+
+paul
+7star,flour,wheat flour,26,500.00,2025-05-07,2025-05-12
+
+paul
+7star,flour,wheat flour,90,35.00,2025-05-07,2025-05-12
+
+paul
+7star,flour,tea flour,36,50.00,2025-05-07,2025-05-27
+
+Andrew
+Gold Farms,Food,Sauce,14,280.00,2025-05-07,2025-05-17
+
+paul
+7star,flour,fgjhb894,8439,988.00,2025-05-14,2025-05-19
+
+paul
+7star,flour,sf,87,99.00,2025-05-14,2025-12-17
+
+paul
+7star,flour,expire,6378,76.00,2025-05-14,2025-05-16
+
+paul
+7star,flour,hb,76,88.00,2025-05-14,2025-05-31
+
+peter
+Coca Cola,soft drinks,sprite,27,90.00,2025-05-14,2025-05-22
+
+peter
+Coca Cola,soft drinks,sting,87,87.00,2025-05-14,2025-08-27
+
+peter
+Coca Cola,soft drinks,mirinda,20,60.00,2025-05-14,2025-05-22
+
+peter
+Coca Cola,soft drinks,joos,80,220.00,2025-05-14,2025-05-18
+
+peter
+Coca Cola,soft drinks,kool,82,89.00,2025-05-14,2025-05-31
+
+peter
+Coca Cola,soft drinks,fanta,28,70.00,2025-05-14,2025-05-16
+
+peter
+Coca Cola,soft drinks,coke,20,400.00,2025-05-14,2025-05-16
+
+peter
+Coca Cola,soft drinks,fanta,70,800.00,2025-05-14,2025-05-16
+
+peter
+Coca Cola,soft drinks,coke,50,80.00,2025-05-14,2025-05-31
+
+john
+fruitszone,Fruits,grapes,8,0.02,2025-05-14,2025-05-29
+
+john
+fruitszone,Fruits,woodapple,50,500.00,2025-05-14,2025-06-19
+
+john
+fruitszone,Fruits,banana,80,9.00,2025-05-14,2025-05-17
+
+john
+fruitszone,Fruits,grapes,80,250.00,2025-05-14,2025-05-24
+
+john
+fruitszone,Fruits,apple,46,80.00,2025-05-14,2025-05-27
+
+john
+fruitszone,Fruits,avocado,50,30.00,2025-05-14,2025-05-16
+
+john
+fruitszone,Fruits,pinapal,50,7.00,2025-05-14,2025-05-31
+
+jonah
+nuttwell,nuts,wallnuts,50,900.00,2025-05-14,2025-07-17
+
+jonah
+nuttwell,nuts,pista,70,400.00,2025-05-14,2025-05-16
+
+jonah
+nuttwell,nuts,almonds,40,500.00,2025-05-14,2025-05-30
+
+jonah
+nuttwell,nuts,cashew,20,890.00,2025-05-14,2025-06-18
+
+jonah
+nuttwell,nuts,pista,700,99.00,2025-05-15,2025-05-17
+
+jonah
+nuttwell,nuts,badam,50,600.00,2025-05-15,2025-06-26
+
+jonah
+nuttwell,nuts,cashoo,89,700.00,2025-05-15,2025-05-20
+
+jonah
+nuttwell,nuts,wallnut,20,40.00,2025-05-16,2025-05-17
+
+jonah
+nuttwell,nuts,pista,50,2000.00,2025-05-15,2025-05-17
+
+jonah
+nuttwell,nuts,badam,40,90.00,2025-05-16,2025-05-31
+
+jonah
+nuttwell,nuts,po,37,92.00,2025-05-16,2025-05-19
+
