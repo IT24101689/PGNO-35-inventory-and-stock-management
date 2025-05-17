@@ -4,13 +4,13 @@ import java.io.*;
 import java.nio.file.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
 
 public class SupplierUtils {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-    // Main merge sort method
-    public static void mergeSort(List<String[]> items, int left, int right) {
+    // Modified merge sort to work with arrays
+    public static void mergeSort(String[][] items, int left, int right) {
         if (left < right) {
             int mid = (left + right) / 2;
             mergeSort(items, left, mid);
@@ -19,61 +19,82 @@ public class SupplierUtils {
         }
     }
 
-    // Merge logic (using expiry date at index 6)
-    private static void merge(List<String[]> items, int left, int mid, int right) {
-        List<String[]> leftList = new ArrayList<>(items.subList(left, mid + 1));
-        List<String[]> rightList = new ArrayList<>(items.subList(mid + 1, right + 1));
+    private static void merge(String[][] items, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        String[][] leftArray = new String[n1][];
+        String[][] rightArray = new String[n2][];
+
+        for (int i = 0; i < n1; i++) {
+            leftArray[i] = items[left + i];
+        }
+        for (int j = 0; j < n2; j++) {
+            rightArray[j] = items[mid + 1 + j];
+        }
 
         int i = 0, j = 0, k = left;
 
-        while (i < leftList.size() && j < rightList.size()) {
+        while (i < n1 && j < n2) {
             try {
-                Date leftDate = dateFormat.parse(leftList.get(i)[6]);
-                Date rightDate = dateFormat.parse(rightList.get(j)[6]);
+                Date date1 = dateFormat.parse(leftArray[i][6]);
+                Date date2 = dateFormat.parse(rightArray[j][6]);
 
-                if (leftDate.compareTo(rightDate) <= 0) {
-                    items.set(k++, leftList.get(i++));
+                if (date1.compareTo(date2) <= 0) {
+                    items[k++] = leftArray[i++];
                 } else {
-                    items.set(k++, rightList.get(j++));
+                    items[k++] = rightArray[j++];
                 }
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
 
-        while (i < leftList.size()) {
-            items.set(k++, leftList.get(i++));
+        while (i < n1) {
+            items[k++] = leftArray[i++];
         }
 
-        while (j < rightList.size()) {
-            items.set(k++, rightList.get(j++));
+        while (j < n2) {
+            items[k++] = rightArray[j++];
         }
     }
 
-    // Read supplier stock entries from file
-    public static List<String[]> getSupplierStockLines(String supplierUsername, String filePath) throws IOException {
-        List<String[]> stockLines = new ArrayList<>();
-        List<String> allLines = Files.readAllLines(Paths.get(filePath));
+     public static String[][] getSupplierStockLines(String supplierUsername, String filePath) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        String line;
         boolean found = false;
+        String[][] tempArray = new String[100][];
+        int count = 0;
 
-        for (String line : allLines) {
+        while ((line = reader.readLine()) != null) {
             if (line.equals(supplierUsername)) {
                 found = true;
                 continue;
             }
+
             if (found) {
                 if (line.trim().isEmpty()) break;
                 String[] parts = line.split(",");
                 if (parts.length >= 7) {
-                    stockLines.add(parts);
+                    if (count == tempArray.length) {
+                        // Resize array manually
+                        String[][] newArray = new String[tempArray.length * 2][];
+                        System.arraycopy(tempArray, 0, newArray, 0, tempArray.length);
+                        tempArray = newArray;
+                    }
+                    tempArray[count++] = parts;
                 }
             }
         }
 
-        return stockLines;
+        reader.close();
+
+        // Final compacted array
+        String[][] result = new String[count][];
+        System.arraycopy(tempArray, 0, result, 0, count);
+        return result;
     }
 
-    // Get expiry status for a stock item (used in JSP)
     public static String getExpiryStatus(String expiryDateStr) {
         try {
             Date today = new Date();

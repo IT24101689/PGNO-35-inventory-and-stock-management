@@ -14,7 +14,7 @@ public class SupplierInventoryManager extends AbstractInventoryManager<StockEntr
     }
 
     private void loadInventory() throws IOException {
-        supplierStacks.clear(); // Clear old data before reloading
+        supplierStacks.clear();
         List<String> lines = readLines();
         String currentSupplier = null;
         CustomStack<StockEntry> currentStack = null;
@@ -33,9 +33,6 @@ public class SupplierInventoryManager extends AbstractInventoryManager<StockEntr
         }
     }
 
-    /**
-     * Call this to force reload inventory from file (e.g. after app restart).
-     */
     public void reloadInventory() throws IOException {
         loadInventory();
     }
@@ -58,7 +55,9 @@ public class SupplierInventoryManager extends AbstractInventoryManager<StockEntr
         for (Map.Entry<String, CustomStack<StockEntry>> entry : supplierStacks.entrySet()) {
             lines.add(entry.getKey());
 
-            for (StockEntry item : entry.getValue().getRemainingItems()) {
+            Object[] items = entry.getValue().getRemainingItems();
+            for (Object obj : items) {
+                StockEntry item = (StockEntry) obj;  // explicit cast here
                 lines.add(item.toString());
             }
 

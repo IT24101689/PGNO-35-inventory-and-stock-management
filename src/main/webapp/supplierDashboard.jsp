@@ -16,7 +16,7 @@
 
     boolean supplierFound = false;
     List<String[]> supplierItems = new ArrayList<>();
-    Set<String> categories = new HashSet<>();
+    Set<String> categories = new TreeSet<>();
 
     for (String line : lines) {
         if (line.equals(supplierUsername)) {
@@ -28,19 +28,20 @@
             String[] details = line.split(",");
             if (details.length == 7) {
                 supplierItems.add(details);
-                categories.add(details[1]); // Add category to the set
+                categories.add(details[1]);
             }
         }
     }
 
-    SupplierUtils.mergeSort(supplierItems, 0, supplierItems.size() - 1);
+    String[][] itemsArray = supplierItems.toArray(new String[0][]);
+    SupplierUtils.mergeSort(itemsArray, 0, itemsArray.length - 1);
+    supplierItems = Arrays.asList(itemsArray);
 
     int expiredCount = 0, soonExpireCount = 0;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     LocalDate today = LocalDate.now();
 
     List<String> rowStatus = new ArrayList<>();
-
     for (String[] item : supplierItems) {
         LocalDate expiry = LocalDate.parse(item[6], formatter);
         long daysToExpire = ChronoUnit.DAYS.between(today, expiry);
@@ -78,7 +79,7 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 950px;
+            max-width: 1000px;
             width: 100%;
             text-align: center;
             animation: fadeIn 1s ease-in-out;
@@ -111,6 +112,7 @@
         select {
             padding: 10px;
             margin-top: 15px;
+            margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
@@ -125,7 +127,11 @@
         .soon-expire { background-color: #fff3cd; border-color: #ffc107; }
         tr.expired-row { background-color: #ffe6e6; }
         tr.soon-expire-row { background-color: #fffbe6; }
-
+        #itemCount {
+            margin-top: 10px;
+            color: #555;
+            font-size: 15px;
+        }
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
@@ -135,11 +141,19 @@
         function filterItems() {
             var selectedCategory = document.getElementById("categoryFilter").value;
             var rows = document.querySelectorAll("#itemsTable tbody tr");
+            let count = 0;
 
             rows.forEach(row => {
                 var category = row.getAttribute("data-category");
-                row.style.display = (selectedCategory === "all" || category === selectedCategory) ? "" : "none";
+                if (selectedCategory === "all" || category === selectedCategory) {
+                    row.style.display = "";
+                    count++;
+                } else {
+                    row.style.display = "none";
+                }
             });
+
+            document.getElementById("itemCount").textContent = "Showing " + count + " item(s)";
         }
     </script>
 </head>
@@ -159,6 +173,15 @@
     <div class="alert soon-expire">
         🟠 <strong><%= soonExpireCount %></strong> item(s) will <strong>expire within 7 days</strong>.
     </div>
+    <% } %>
+
+    <% if (!categories.isEmpty()) { %>
+    <select id="categoryFilter" onchange="filterItems()">
+        <option value="all">All Categories</option>
+        <% for (String category : categories) { %>
+        <option value="<%= category %>"><%= category %></option>
+        <% } %>
+    </select>
     <% } %>
 
     <div class="table-container">
@@ -196,6 +219,7 @@
             <% } %>
             </tbody>
         </table>
+        <div id="itemCount">Showing <%= supplierItems.size() %> item(s)</div>
         <% } else { %>
         <p style="color: #888;">No items found.</p>
         <% } %>
