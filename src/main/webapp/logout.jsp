@@ -90,5 +90,6 @@
   <a href="index.jsp" class="button">Go to Home</a>
 </div>
 
+<jsp:include page="includes/alert.jsp"/>
 </body>
 </html>
