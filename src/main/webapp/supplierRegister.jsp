@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -172,35 +174,27 @@
         <h2>Create a New Supplier Account</h2>
     </div>
 
-    <!-- Display error message if passwords do not match -->
-    <%
-        String error = request.getParameter("error");
-        if (error != null) {
-    %>
-    <p class="error"><%= error %></p>
-    <% } %>
-
-    <form action="supplier-register-action.jsp" method="post">
+    <form action="supplierRegister" method="post">
         <div class="input-group">
             <label for="company-name">Company Name</label>
-            <input type="text" id="company-name" name="company-name" required placeholder="Enter company name">
+            <input type="text" id="company-name" name="companyName" required placeholder="Enter company name">
         </div>
         <div class="input-group">
             <label for="supplier-username">Username</label>
-            <input type="text" id="supplier-username" name="supplier-username" required placeholder="Enter a username">
+            <input type="text" id="supplier-username" name="name" required placeholder="Enter a username">
         </div>
         <div class="input-group">
             <label for="supplier-password">Password</label>
-            <input type="password" id="supplier-password" name="supplier-password" required placeholder="Create a password">
+            <input type="password" id="supplier-password" name="password" required placeholder="Create a password">
         </div>
         <div class="input-group">
             <label for="confirm-supplier-password">Confirm Password</label>
-            <input type="password" id="confirm-supplier-password" name="confirm-supplier-password" required placeholder="Confirm your password">
+            <input type="password" id="confirm-supplier-password" name="confirmPassword" required placeholder="Confirm your password">
         </div>
         <div class="input-group">
             <label for="item-category">Item Category</label>
-            <!-- Changed to input field for free text -->
-            <input type="text" id="item-category" name="item-category" required placeholder="Enter the category of items you supply">
+
+            <input type="text" id="item-category" name="category" required placeholder="Enter the category of items you supply">
         </div>
         <button type="submit" class="button">Register</button>
     </form>
@@ -210,5 +204,6 @@
     </div>
 </div>
 
+<jsp:include page="includes/alert.jsp"/>
 </body>
 </html>

@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
 
 <%
@@ -198,7 +200,7 @@
     </form>
 
     <div class="footer">
-        <p>Don't have an account? <a href="supplierRegister.jsp">Register</a></p>
+        <p>Don't have an account? <a href="supplierRegister">Register</a></p>
     </div>
     <div class="center-wrapper">
         <a href="loginSelection.jsp" class="back-btn"><i class="bi bi-arrow-left"></i> Back to Login Selection</a>
@@ -206,5 +208,6 @@
 
 </div>
 
+<jsp:include page="includes/alert.jsp"/>
 </body>
 </html>
