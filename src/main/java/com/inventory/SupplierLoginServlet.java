@@ -7,8 +7,19 @@ import java.io.*;
 
 @WebServlet("/SupplierLoginServlet")
 public class SupplierLoginServlet extends HttpServlet {
-    private static final String SUPPLIER_CREDENTIALS_FILE =
-            "C:\\Users\\USER\\Desktop\\inventory\\Supplier_Management\\src\\main\\webapp\\SupplierLoginCredentials.txt";
+
+    private static final String USERS_DIR = System.getProperty("catalina.home") + "/bin/users";
+
+
+    static {
+        // Create users directory if it doesn't exist
+        File directory = new File(USERS_DIR);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+    }
+
+    private static final String SUPPLIER_CREDENTIALS_FILE = USERS_DIR + "/supplier.txt";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String inputUsername = request.getParameter("username").trim();
@@ -26,6 +37,9 @@ public class SupplierLoginServlet extends HttpServlet {
                 session.setAttribute("supplierUsername", supplier.getUsername());
                 session.setAttribute("companyName", supplier.getCompanyName());
                 session.setAttribute("category", supplier.getCategory());
+
+                session.setAttribute("user", supplier);
+                session.setAttribute("role", "supplier");
                 session.removeAttribute("error");
                 response.sendRedirect("supplierDashboard.jsp");
             } else {
