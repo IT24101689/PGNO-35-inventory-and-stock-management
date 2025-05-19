@@ -226,8 +226,12 @@
     </div>
 
     <a href="supplierInventory.jsp" class="button">Manage Inventory</a>
+
+    <a href="profile?userRole=supplier&name=<%= supplierUsername %>" class="button">Profile</a>
+
     <a href="LogoutServlet" class="button">Logout</a>
 </div>
 
+<jsp:include page="includes/alert.jsp"/>
 </body>
 </html>
