@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -16,6 +17,19 @@
     </properties>
 
     <dependencies>
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.inventory</groupId>
+    <artifactId>inventory-system</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <dependencies>
+
+>>>>>>> f50d5077a154828bda602ab84c66e409f47d533a
         <!-- Servlet API -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -23,10 +37,28 @@
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
+<<<<<<< HEAD
+=======
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+
+>>>>>>> f50d5077a154828bda602ab84c66e409f47d533a
     </dependencies>
 
     <build>
         <plugins>
+<<<<<<< HEAD
             <!-- Maven WAR Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -34,10 +66,30 @@
                 <version>3.3.2</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+=======
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+>>>>>>> f50d5077a154828bda602ab84c66e409f47d533a
                 </configuration>
             </plugin>
         </plugins>
     </build>
+<<<<<<< HEAD
 </project>
 
 
+=======
+    <!-- JSTL for JSP -->
+
+
+</project>
+>>>>>>> f50d5077a154828bda602ab84c66e409f47d533a
