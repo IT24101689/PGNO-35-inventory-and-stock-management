@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="InventoryandStockManagementSystem:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/InventoryandStockManagementSystem_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="InventoryandStockManagementSystem" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="InventoryandStockManagementSystem/web/Web" />
+      <element id="javaee-facet-resources" facet="InventoryandStockManagementSystem/web/Web2" />
+    </root>
+  </artifact>
+</component>
