@@ -180,8 +180,9 @@
     <p class="error"><%= error %></p>
     <% } %>
 
-    <form action="supplier-register-action.jsp" method="post">
-        <div class="input-group">
+    <form action="SupplierRegisterServlet" method="post">
+
+    <div class="input-group">
             <label for="company-name">Company Name</label>
             <input type="text" id="company-name" name="company-name" required placeholder="Enter company name">
         </div>

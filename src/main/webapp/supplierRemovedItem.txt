@@ -163,3 +163,9 @@ LivePro,Vegetables,potato,47,89.00,2025-05-17,2025-05-31
 james
 LivePro,Vegetables,carror1,20,500.00,2025-05-17,2025-05-29
 
+thomas
+dairyshepherd,dairy,curd,67,78.00,2025-05-21,2025-05-24
+
+thomas
+dairyshepherd,dairy,milk,34,56.00,2025-05-21,2025-05-31
+

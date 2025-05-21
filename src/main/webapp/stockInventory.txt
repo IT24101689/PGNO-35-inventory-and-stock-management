@@ -20,3 +20,5 @@ LivePro,Vegetables,ginger,56,78.00,2025-05-17,2025-05-19
 LivePro,Vegetables,leeks,678,34.00,2025-05-17,2025-06-28
 LivePro,Vegetables,carror,12,345.00,2025-05-18,2025-05-31
 LivePro,Vegetables,leeks,78,930.00,2025-05-18,2025-05-21
+dairyshepherd,dairy,milk,34,56.00,2025-05-21,2025-05-31
+dairyshepherd,dairy,curd,67,78.00,2025-05-21,2025-05-24
