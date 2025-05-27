@@ -46,7 +46,7 @@ public class CustomStack<T> implements Stack<T> {
         System.arraycopy(stackArray, 0, newArray, 0, stackArray.length);
         stackArray = newArray;
     }
-
+ 
     // Changed to return Object[] instead of T[]
     public Object[] getRemainingItems() {
         Object[] items = new Object[top + 1];

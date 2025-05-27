@@ -1,7 +1,6 @@
 package utils;
 
-import java.io.*;
-import java.nio.file.*;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -59,55 +58,4 @@ public class SupplierUtils {
         }
     }
 
-     public static String[][] getSupplierStockLines(String supplierUsername, String filePath) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(filePath));
-        String line;
-        boolean found = false;
-        String[][] tempArray = new String[100][];
-        int count = 0;
-
-        while ((line = reader.readLine()) != null) {
-            if (line.equals(supplierUsername)) {
-                found = true;
-                continue;
-            }
-
-            if (found) {
-                if (line.trim().isEmpty()) break;
-                String[] parts = line.split(",");
-                if (parts.length >= 7) {
-                    if (count == tempArray.length) {
-                        // Resize array manually
-                        String[][] newArray = new String[tempArray.length * 2][];
-                        System.arraycopy(tempArray, 0, newArray, 0, tempArray.length);
-                        tempArray = newArray;
-                    }
-                    tempArray[count++] = parts;
-                }
-            }
-        }
-
-        reader.close();
-
-        // Final compacted array
-        String[][] result = new String[count][];
-        System.arraycopy(tempArray, 0, result, 0, count);
-        return result;
-    }
-
-    public static String getExpiryStatus(String expiryDateStr) {
-        try {
-            Date today = new Date();
-            Date expiryDate = dateFormat.parse(expiryDateStr);
-            long diff = expiryDate.getTime() - today.getTime();
-            long days = diff / (1000 * 60 * 60 * 24);
-
-            if (expiryDate.before(today)) return "expired";
-            else if (days <= 7) return "soon-expire";
-            else return "normal";
-
-        } catch (ParseException e) {
-            return "unknown";
-        }
-    }
 }

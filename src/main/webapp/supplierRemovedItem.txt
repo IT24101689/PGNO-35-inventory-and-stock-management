@@ -169,3 +169,9 @@ dairyshepherd,dairy,curd,67,78.00,2025-05-21,2025-05-24
 thomas
 dairyshepherd,dairy,milk,34,56.00,2025-05-21,2025-05-31
 
+james
+LivePro,Vegetables,test2,43,43.00,2025-05-25,2026-02-20
+
+james
+LivePro,Vegetables,test1,5,455.00,2025-05-25,2025-05-26
+
